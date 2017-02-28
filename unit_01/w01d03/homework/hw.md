@@ -60,13 +60,37 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
-> Answer here
+> Task
+    - Start time
+    - End time
+    - Name of task
+    - Total time of completion
+
+> Projects
+    - Name of project
+    - Tasks to be completed
+    - Description of project
+    - Project start/finish date
+    - Total time of completion
+
+>>> Date and time are essential in keeping track of finished/unfinished Projects/Tasks. These choices will give information regarding the total amount of man hours it took to complete a project and also whether or not they are regarded as past a deadline or on track.
 
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
-> Answer here
+> Photo
+  - Caption
+  - Time of upload
+  - URL to share individual photos
+
+> Album
+  - Name of album
+  - Photos 
+  - URl to share the entire album
+
+
+>>> URLs are essential in order for things to be shared. Captions can give a brief description of a photographed memory along with a reminded of what date it was taken/uploaded, and of course, photos are needed to make an album.   
 
 ### 3. Home Automation Manager
 
@@ -75,7 +99,19 @@ track of the time and temperature of the house that it monitors, and use that
 information to turn on and off different lights and adjust the thermostat up
 and down.
 
-> Answer here
+> Lights
+  - Location of light
+  - Intensity of bulb
+
+> Thermostat
+  - Temperature readout
+  - manual override controls
+
+> House
+  - lights
+  - temperature 
+
+>>> The amount of available lighting and the current temperature of the house are needed in order for the app to do it's job. Giving the location of a certain lightbulb will allow the user to manage lighting in specific areas of their home and adjust the brightness at which the bulb will produce. A temperature readout will allow the user to acknowledge whether it's too hot or too cold and grant them the ability to adjust their inside temperature to fit their needs.
 
 ### 4. Sneaker Store
 
@@ -83,7 +119,23 @@ This app will allow customers to browse a list of products (sneakers, in this
 case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
-> Answer here
+> Products
+  - Product filter for different sizes, colors, etc
+  - name of sneaker
+  - price for a pair
+
+> Cart
+  - order quantity
+  - products added
+  - total amount
+
+> Order History
+  - Date ordered
+  - Date shipped
+  - Total items
+  - Total amount
+
+>>> Allowing products to be filtered allows the customer to browse for items by brand, size, color, etc. Dates allow the user to view when their order was placed and shipped as well as how many items were ordered and how much they spent on that order.
 
 ## Representing Abstractions in Code
 
@@ -139,7 +191,7 @@ var exampleLine = {
 
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
-> Answer here
+> An advantage is that the stations are allowed to be referenced by name, while a disadvantage would be that the app does not tell users how long it will take them to their desired station, for instance how many stopovers until the train reaches their destination.
 
 ### 6. Doctor Appointment App
 
@@ -242,7 +294,7 @@ Under what circumstances might one representation be a better choice than the
 other? Are there any circumstances in which the other representation might be
 the better choice?
 
-> Answer here
+> The first example is able to show which patients belong to which doctor which would make it easier to sort patients and who they belong to but could be a bit tricky to find appointments. The second example gives individual date that does not represent which patients are tied to what doctor.
 
 ## Tying It Together
 
@@ -253,13 +305,28 @@ You've been tasked with building an in-browser tic-tac-toe game.
 a.  What are some possible entities that your application might use to model its
     data? Please pick at least two, with at least two properties apiece.
 
-  > Answer here
+> Player
+ - player name
+ - player picture
+
+>GameBoard
+ - actions from players
+ - player teams
+
 
 b.  How might those entities be represented in JavaScript code?
 
-  > Answer here
+  var playerInfo = {
+    playerid: 'Dan_Milo',
+    playerAvatar = 'http://playerphot.com/......'
+  };
+
+  var gameBoard = {
+    playerOne: 'Dan Milo',
+    playerTwo: 'Morty Morrison',
+  };
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
-  > Answer here
+  >  A game needs to be able to identify players and which team they are playing for. These players may have their own unique IDs or photos. The game needs to be able to track the moves made by players in order to find a winner, and to give players a visual feedback .
