@@ -1,41 +1,39 @@
-console.log('hey');
+$(function () {
+    
+    // Swaps out the 'btn-danger' and 'btn-success' classes on the #addHome button
+    $('#addHome').removeClass('btn-danger').addClass('btn-success');
 
-$(function() {
-  console.log('Everything is ready!');
+    //Centers <h1> text
+    $('.jumbotron').css('text-align', 'center');
 
-  $('#addHome').removeClass('btn-danger').addClass('btn-success');
-  $('.jumbotron').addClass('text-center');
 
-  var $newLink = $('<br><br><a id="zillowLink" href="http://www.zillow.com">Visit Zillow</a>')
 
-  $newLink.appendTo('body')
+    // $('.btn-danger')
 
-  $('#zillowLink').attr('target', '_blank');
 
-  $('#addHome').click(function($event) {
-    console.log($event);
-    console.log(this)
-  })
 
-  var removeHome = function($event) {
-    console.log($event.target)
-    console.log(this)
-    if($($event.target).is('button')) {
-      $(this).fadeOut(1000, function() {
-        $(this).remove()
-      })
-    }
-  }
+    // Creates a jQuery Object that wraps a brand new link tag
+    var $newLink = $('<br><br><a id="zillowLink" href="http://www.zillow.com">Visit Zillow.com<a>');
 
-  $('#homes tbody').on('click', 'tr', removeHome)
+    // Adds the $newLink from above after the header
+    var $header = $('#header');
+    $newLink.insertAfter($header);
 
-  $('#addHome').click(function($event) {
+    // Adds the $newLink from above at the end of the body
+    // var $body = $('body');
+    // $newLink.appendTo('body');
+    
+    // Adds a click event handler to the #addHome button 
+     $('#addHome').on('click', function() {
+      alert('Added Home');
+
+      //declared new var home with arrayName.pop
     var home = newHomes.pop();
-
+      //declared new jQuery var homeTr with new <tr> & <td>
     var $homeTr = $(
       `
       <tr>
-        <td>$()</td>
+        <td>${home.address}</td>
         <td>${home.sf}</td>
         <td>${home.bedrooms}</td>
         <td>${home.baths}</td>
@@ -45,13 +43,44 @@ $(function() {
       `
     );
 
-    $homeTr.appendTo('tbody');
-  })
+    // attach $homeTr to current $tbody
+    $('tbody').append($homeTr);
+  });
 
-  var newHomes = [
-      {address: "27569 Cedarwood Drive", sf: "2,535", bedrooms: 3, baths: 2.5, price: "$496,500"},
-      {address: "316 Annandale Drive", sf: "1,326", bedrooms: 4, baths: 2, price: "$275,000"},
-      {address: "251 Grandview Road", sf: "3,800", bedrooms: 3, baths: 2, price: "$699,900"},
-      {address: "28571 Manitoba", sf: "2,960", bedrooms: 4, baths: 3.5, price: "$775,000"}
-  ];
-})
+    // Pops a message that a row is about to be deleted when ANY of the table rows are clicked
+    // Then fades the row out for 50 milliseconds before removing it entirely
+    $('#homes tbody').on('click', 'tr', '.btn-danger', function () {
+        alert('You are about to delete this row.');
+        $(this).fadeOut(1000, function() {
+            $(this).remove();
+        });
+    });
+
+    $('#reStore tbody').on('click', 'tr', function (){
+      $(this).prev().val(function(){
+        return this.defaultValue;
+      })
+    })
+
+    var newHomes = [
+    {address: "27569 Cedarwood Drive", sf: "2,535", bedrooms: 3, baths: 2.5, price: "$496,500"},
+    {address: "316 Annandale Drive", sf: "1,326", bedrooms: 4, baths: 2, price: "$275,000"},
+    {address: "251 Grandview Road", sf: "3,800", bedrooms: 3, baths: 2, price: "$699,900"},
+    {address: "28571 Manitoba", sf: "2,960", bedrooms: 4, baths: 3.5, price: "$775,000"}
+];
+
+
+
+    
+    
+});
+
+//////////////////////////////////////////////////
+
+// table.append(new homes data).append(tr???)
+
+
+ 
+
+
+
