@@ -8,10 +8,6 @@ $(function () {
 
 
 
-    // $('.btn-danger')
-
-
-
     // Creates a jQuery Object that wraps a brand new link tag
     var $newLink = $('<br><br><a id="zillowLink" href="http://www.zillow.com">Visit Zillow.com<a>');
 
@@ -56,11 +52,7 @@ $(function () {
         });
     });
 
-    $('#reStore tbody').on('click', 'tr', function (){
-      $(this).prev().val(function(){
-        return this.defaultValue;
-      })
-    })
+
 
     var newHomes = [
     {address: "27569 Cedarwood Drive", sf: "2,535", bedrooms: 3, baths: 2.5, price: "$496,500"},
