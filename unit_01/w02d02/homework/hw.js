@@ -4,13 +4,16 @@
 
 var timerUI = {
   drawNumericDisplay: function(timerValue){
-    // Your Code Here
+    document.getElementById('numeric-display')
   },
   drawProgressBars: function(timerValue){
-    // Your Code Here
+    var timeLeft = 100 - timerValue;
+    document.getElementById(progress-bars)
   },
   drawLitFuses: function(timerValue){
-    // Your Code Here
+    var burntUnburnt = timerValue/100;
+    document.getElementByClass('unburnt') * 98 + %;
+    document.getElementbyClass('burnt') * 98 + %;
   },
   drawCrawlers: function(timerValue){
     // Your Code Here
