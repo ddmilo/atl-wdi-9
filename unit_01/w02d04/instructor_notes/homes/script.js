@@ -21,35 +21,47 @@ $(function () {
     
     // Adds a click event handler to the #addHome button 
      $('#addHome').on('click', function() {
-      alert('Added Home');
+            alert('Added Home');
+            $(this).fadeIn(1000)
 
-      //declared new var home with arrayName.pop
-    var home = newHomes.pop();
-      //declared new jQuery var homeTr with new <tr> & <td>
-    var $homeTr = $(
-      `
-      <tr>
-        <td>${home.address}</td>
-        <td>${home.sf}</td>
-        <td>${home.bedrooms}</td>
-        <td>${home.baths}</td>
-        <td>${home.price}</td>
-        <td><button class="btn btn-xs btn-danger">Remove</button></td>
-      </tr>
-      `
-    );
+              //declared new var home with arrayName.pop
+            var home = newHomes.pop();
+              //declared new jQuery var homeTr with new <tr> & <td>
+            var $homeTr = $(
+              `
+              <tr>
+                <td>${home.address}</td>
+                <td>${home.sf}</td>
+                <td>${home.bedrooms}</td>
+                <td>${home.baths}</td>
+                <td>${home.price}</td>
+                <td><button class="btn btn-xs btn-danger">Remove</button></td>
+              </tr>
+              `
+            );
 
-    // attach $homeTr to current $tbody
-    $('tbody').append($homeTr);
-  });
+            // attach $homeTr to current $tbody
+            $('tbody').append($homeTr);
+      });
 
     // Pops a message that a row is about to be deleted when ANY of the table rows are clicked
     // Then fades the row out for 50 milliseconds before removing it entirely
     $('#homes tbody').on('click', 'tr', '.btn-danger', function () {
         alert('You are about to delete this row.');
         $(this).fadeOut(1000, function() {
-            $(this).remove();
+            $(this).detach();
         });
+    });
+
+
+
+    //Restore function
+    $('#reStore').on('click', function() { 
+        alert('You are about to restore items.')
+        $('tbody').append($homeTr);
+
+
+
     });
 
 
