@@ -6,6 +6,9 @@ var hbs = require('hbs');
 
 app.set('view engine', 'hbs');
 app.set('views', './views');
+app.use(express.static(__dirname + '/public'));
+
+
 
 app.listen(port, function(){
 	console.log('I hear you');	
