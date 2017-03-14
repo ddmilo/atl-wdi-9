@@ -12,15 +12,24 @@ app.listen(port, function(){
 });
 
 app.get('/', function(req, res){
-	res.send("Welcome to Pizza Express!");
+	res.render('index.hbs', {
+		data: "Welcome to Pizza Express"
+	});
+	// res.send("Welcome to Pizza Express!");
 });
 
 app.get('/topping/:type', function(req, res, next){
-	res.send(req.params.type + '!' + ' ' + 'Good Choice!');
+	res.render('toppings.hbs', {
+		data: req.params.type + '!' + ' ' + 'Good Choice!'
+	})
+	// res.send(req.params.type + '!' + ' ' + 'Good Choice!');
 
 });
 
 app.get('/order/:amount/:size', function (req, res, next) {
-	res.send("You ordered" + ' ' + req.params.amount + ' ' + req.params.size + ' ' + "Pizzas");
+	res.render('order.hbs', {
+		data: "You ordered" + ' ' + req.params.amount + ' ' + req.params.size + ' ' + "Pizzas!"
+	})
+	// res.send("You ordered" + ' ' + req.params.amount + ' ' + req.params.size + ' ' + "Pizzas");
 });
 
