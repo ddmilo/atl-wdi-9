@@ -33,3 +33,6 @@ app.get('/order/:amount/:size', function (req, res, next) {
 	// res.send("You ordered" + ' ' + req.params.amount + ' ' + req.params.size + ' ' + "Pizzas");
 });
 
+app.get('*', function(req, res, next) {
+	res.send("404");
+});
