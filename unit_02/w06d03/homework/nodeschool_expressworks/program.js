@@ -34,30 +34,23 @@ app.use(bodyparser.urlencoded({
 
 //Params Pam Pam
 
-app.put('/message/:id', function(req, res){
-	var id = req.params.id;
-	res.send(crypto.createHash('sha1').update(new Date().toDateString() + id).digest('hex'));
+// app.put('/message/:id', function(req, res){
+// 	var id = req.params.id;
+// 	res.send(crypto.createHash('sha1').update(new Date().toDateString() + id).digest('hex'));
 
-})
-
-
+// })
 
 
 
 
+//What's In Query
+
+
+// app.get('/search', function(req, res){
+// 	res.send(req.query);
+// })
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Port stuff
 app.listen(process.argv[2])
