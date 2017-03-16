@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
-var bodyparser= require('body-parser');
+var bodyparser = require('body-parser');
+var crypto = require('crypto');
 
 app.use(bodyparser.urlencoded({
 	extended: false
@@ -23,12 +24,21 @@ app.use(bodyparser.urlencoded({
 //Good Old Form
 
 
-app.post('/form', function(req, res){
-	var str = req.body.str
-	res.end(req.body.str.split('').reverse().join(''));
+// app.post('/form', function(req, res){
+// 	var str = req.body.str
+// 	res.end(req.body.str.split('').reverse().join(''));
+
+// })
+
+
+
+//Params Pam Pam
+
+app.put('/message/:id', function(req, res){
+	var id = req.params.id;
+	res.send(crypto.createHash('sha1').update(new Date().toDateString() + id).digest('hex'));
 
 })
-
 
 
 
