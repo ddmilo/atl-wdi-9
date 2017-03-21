@@ -9,7 +9,17 @@ var piratesArray = require('../models/pirates.js');
 router.get('/', function(req, res){
 	//'pirates' already in a stuctured array, just throw it in
 	res.render('index', {
-		piratesArray: piratesArray
+		pirates: piratesArray
+	});
+});
+
+
+//Get a speicfic Pirate
+router.get('/:id', function(req, res){
+	var somePirate = piratesArray[req.params.id];
+
+	res.render('show', {
+		pirates: somePirate
 	});
 });
 
