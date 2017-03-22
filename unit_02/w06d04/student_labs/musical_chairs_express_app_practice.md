@@ -10,7 +10,7 @@ Your recipes will have `title`, `veggie` and `imageUrl` fields so that you can a
 
 Here's a deployed version of the app for reference: https://recipe-practice-app.herokuapp.com/recipes
 
-Here is solution code from today's Todo app: https://github.com/ga-students/wdi-remote-r2d2/tree/master/unit_02/w05d04/instructor_examples
+Here is solution code from today's Todo app: https://github.com/ATL-WDI-Curriculum/atl-wdi-9/tree/master/unit_02/w06d04/instructor_examples/in-class-code-hbs
 
 <br />
 
@@ -53,7 +53,7 @@ $ touch server.js
         }
       ]
     };
-```
+    ```
 
 1. Add the appropriate code in the `server.js` to `require()` the `module.exports` from the `recipes.js` file.
 
