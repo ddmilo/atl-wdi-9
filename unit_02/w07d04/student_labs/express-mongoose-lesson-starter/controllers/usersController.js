@@ -13,7 +13,7 @@ router.get('/', function(req, res){
 
         // console.log(users);
         res.render('index', {
-          User: User
+          User: users
         })
       })
 })
