@@ -1,29 +1,23 @@
-/* packages */
-var path        = require('path');
-var logger      = require('morgan');
-var express     = require('express');
-var hbs         = require('hbs');
-var app         = express();
+//Requirements
+var express = require('express');
+var app = express();
+var hbs = require('hbs');
 var bodyParser = require('body-parser');
 
+
+var piratesController = require('./controllers/pirates_controller.js')
+app.use('/pirates', piratesController)
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'hbs');
-app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+//Controller
 
 
 
 
-// controllers
-var piratesController = require(__dirname + '/controllers/pirates_controller.js');
-app.use('/pirates', piratesController);
 
-// home
-app.get('/', function(req,res) {
-  res.send('This is our Home Page!');
-});
 
+//Port listen
 var port = 3000;
 app.listen(port);
