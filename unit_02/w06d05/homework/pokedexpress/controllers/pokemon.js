@@ -2,15 +2,15 @@
 // REQUIREMENTS
 //***************************
 // Set up your express dependency here:
-
+var express = express();
 // Set express Router to a variable called router:
-
+var router = express.Router();
 // Let's export this router file at the bottom of the page:
 // (Scroll to bottom to Exports)
 
 // Require the poke_array.js file here from models.
 // Save it to a variable called data:
-
+var data = require('./models/poke_array.js')
 
 
 
@@ -61,3 +61,4 @@
 //***************************
 // use module.exports to export router:
 // this makes the scripts on this page accessible by other files that "require" this file. Without exporting, the code in here just sits in here, alone.
+module.export = router;
