@@ -9,8 +9,9 @@ router.get('/', function(req, res){
   User.find({})
     .exec(function(err, users){
       if (err) { console.log(err); }
-      console.log(users);
-      res.send(users);
+      res.render('index', {
+        users: users
+      });
     });
 });
 
@@ -19,8 +20,20 @@ router.get('/:id', function(req, res){
   User.findById(req.params.id)
   .exec(function(err, user) {
     if (err) console.log(err);
-    console.log(user);
-    res.send(user);
+    res.render('show', {
+      user: user
+    });
+  });
+});
+
+//EDIT USER ROUTE
+router.get('/:id/:edit', function(req, res){
+  User.findById(req.params.id)
+  .exec(function(err, user) {
+    if (err) console.log(err);
+    res.render('edit', {
+      user: user
+    });
   });
 });
 
@@ -39,15 +52,16 @@ router.post('/', function(req, res){
 });
 
 // USER UPDATE ROUTE
-router.patch('/:id', function(req, res){
+router.post('/:id', function(req, res){
   User.findByIdAndUpdate(req.params.id, {
     first_name: req.body.first_name,
     email: req.body.email
   }, { new: true })
   .exec(function(err, user){
     if (err) { console.log(err); }
-    console.log(user);
-    res.send(user);
+    res.render('show', {
+      user: user
+    });
   });
 });
 
@@ -60,6 +74,19 @@ router.delete('/:id', function(req, res){
     res.send("User deleted");
   });
 });
+
+//ITEMS INDEX
+router.get('/:id/items', function(req, res){
+  User.findById(req.params.id)
+    .exec(function(err, users){
+      if (err) { console.log(err); }
+      res.render('items/index', {
+        items: user.items,
+        user: user
+      });
+    });
+});
+
 
 // ADD A NEW ITEM
 router.post('/:id/items', function(req, res){
