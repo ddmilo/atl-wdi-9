@@ -2,7 +2,7 @@
 // REQUIREMENTS
 //***************************
 // Set up your express dependency here:
-var express = express();
+var express = require('express');
 // Set express Router to a variable called router:
 var router = express.Router();
 // Let's export this router file at the bottom of the page:
@@ -10,7 +10,7 @@ var router = express.Router();
 
 // Require the poke_array.js file here from models.
 // Save it to a variable called data:
-var data = require('./models/poke_array.js')
+var data = require('../models/poke_array.js')
 
 
 
@@ -20,7 +20,11 @@ var data = require('./models/poke_array.js')
 // Note: All the routes below can be accessed at `localhost:3000/pokemon` + `resource`
 // Make a GET route '/' that will render an index page of all pokemon images
 
-
+router.get('/', function(req, res){
+  res.render('index', {
+    pokemon: data
+  })
+})
 
 
 
@@ -61,4 +65,4 @@ var data = require('./models/poke_array.js')
 //***************************
 // use module.exports to export router:
 // this makes the scripts on this page accessible by other files that "require" this file. Without exporting, the code in here just sits in here, alone.
-module.export = router;
+module.exports = router;

@@ -15,6 +15,7 @@ var bodyParser = require('body-parser');
 // MIDDLEWARE
 //***************************
 //set up your middleware and view engine here
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'hbs');
 
@@ -24,9 +25,8 @@ app.set('view engine', 'hbs');
 //***************************
 //set up your controller for the `/pokemon` resource
 //ex: var pokemonController = require('???')
-
-
-
+var pokemonController = require('./controllers/pokemon.js');
+app.use('/pokemon', pokemonController);
 
 //***************************
 // LISTENER

@@ -1,0 +1,25 @@
+<ul>
+  {{#each pokemon}}
+    <li>
+      {{ this.name }}
+      <br>
+      {{ this.img }}
+      <br>
+      Type: {{ this.type }}
+      <br>
+      Stats
+      <br>
+      HP: {{ this.stats.hp }}
+      <br>
+      Attack: {{ stats.attack }}
+      <br>
+      Defense: {{ stats.defense }}
+      <br>
+      spattack: {{ stats.spattack }}
+      <br>
+      spdefense: {{ stats.spdefense }}
+      <br>
+      speed: {{ stats.speed }}
+    </li>
+  {{/each}}
+</ul>
