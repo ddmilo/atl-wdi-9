@@ -1,9 +1,9 @@
 <ul>
   {{#each pokemon}}
     <li>
-      {{ this.name }}
+      <h3>{{ this.name }}</h3>
       <br>
-      {{ this.img }}
+      <img src="{{ this.img }}">
       <br>
       Type: {{ this.type }}
       <br>
@@ -15,11 +15,13 @@
       <br>
       Defense: {{ stats.defense }}
       <br>
-      spattack: {{ stats.spattack }}
+      SP Attack: {{ stats.spattack }}
       <br>
-      spdefense: {{ stats.spdefense }}
+      SP Defense: {{ stats.spdefense }}
       <br>
-      speed: {{ stats.speed }}
+      Speed: {{ stats.speed }}
+
     </li>
+
   {{/each}}
 </ul>

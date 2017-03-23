@@ -15,6 +15,7 @@ var bodyParser = require('body-parser');
 // MIDDLEWARE
 //***************************
 //set up your middleware and view engine here
+app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'hbs');
