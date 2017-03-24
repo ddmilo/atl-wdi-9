@@ -23,6 +23,13 @@ var UserSchema = new Schema({
 
 //add a ListSchema.pre function (just like UserSchema below)
 //your code
+ListSchema.pre('save', function(next) {
+  now = new Date();
+  this.updated_at = now;
+
+  if (!this.created_at) { this.created_at = now }
+  next();
+});
 
 UserSchema.pre('save', function(next) {
   now = new Date();
@@ -37,8 +44,10 @@ var UserModel = mongoose.model('User', UserSchema);
 
 //var ListModel model
 //your code
+var ListModel = mongoose.moder('List', ListSchema);
 
 //export List below
 module.exports = {
   User: UserModel
+  List: ListModel
 };

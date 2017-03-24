@@ -2,6 +2,8 @@
 // REQUIREMENTS
 //======================
 //require express,router,  mongoose, List schema, User schema, authHelpers
+var express = require('express');
+var router = router.Express();
 
 
 //======================
