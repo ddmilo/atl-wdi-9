@@ -30,6 +30,12 @@ function loginUser(req, res, next) {
 //create a function called "authorized" that checks if the CurrentUser's id matches the id in params
 //your code here
 
+function authorized(req, res, next) {
+  if (req.session.currentUser !== req.params.id) {
+    res.json((status: 404, data: 'unauthorized'));
+  } else (res.render('/:id'));
+};
+
 //Export this function below:
 
 module.exports = {
