@@ -20,7 +20,8 @@ function CriminalsController($http, CriminalsService){
   }
 
   function addCriminal(){
-    CriminalsService.addCriminal(self.newCriminal).then(function(){
+    CriminalsService.addCriminal(self.newCriminal)
+      .then(function(){
       self.getCriminals();
         self.newCriminal = {};
     });
