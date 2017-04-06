@@ -22,10 +22,15 @@ function uiRouterSetup($stateProvider, $urlRouterProvider){
       url: '/criminals',
       template: '<criminals></criminals>'
     })
+    .state('newCriminal', {
+      url: '/criminals/new',
+      template: '<new-criminal></new-criminal>'
+    })
     .state('criminalsShow', {
       url: '/criminals/:criminalId',
       template: '<criminals-show></criminals-show>'
     });
+
 
 
 
