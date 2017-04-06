@@ -15,8 +15,8 @@ function uiRouterSetup($stateProvider, $urlRouterProvider){
     })
     .state('about', {
       url: '/about',
-      // template: "<about></about>"
-      template: '<h1>About</h1>'
+      template: "<about></about>"
+      // template: '<h1>About</h1>'
     })
     .state('criminals', {
       url: '/criminals',
