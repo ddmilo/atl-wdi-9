@@ -1,5 +1,7 @@
 require 'pry'
 
+hash = Hash.new
+
 #shopping_list is a local variable
 #@shopping_list is an instance variable, making it
 #available to all methods
@@ -46,9 +48,17 @@ require 'pry'
 #
 # replace_item
 
-def reverse_list
-  @shopping_list.reverse.each{|x| puts x, ""}
-  # puts @shopping_list
+# def reverse_list
+#   @shopping_list.reverse.each{|x| puts x, ""}
+# end
+
+# reverse_list
+
+def numbered_list
+  @shopping_list.each_with_index{|item, index| hash[item] = index
+  }
+
+  hash
 end
 
-reverse_list
+numbered_list
